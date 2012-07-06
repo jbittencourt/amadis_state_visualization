@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : users_export.dtd.dtd
+    Created on : 21 de Maio de 2006, 23:04
+    Author     : juliano
+    Description:
+        Purpose of the document follows.
+
+    TODO define vocabulary identification data
+    PUBLIC ID  : -//vendor//vocabulary//EN
+    SYSTEM ID  : http://server/path/users_export.dtd.dtd
+-->
+
+<!ELEMENT users (user*)>
+
+<!--each user contains two kinds of elements:
+    * those that identifies the user: codeUser, username and name;
+    * and those that identifies the user interaction in the blogs, forum and chat
+     -->
+<!ELEMENT user (codeUser, username, name, accessinfo, blog, forum, chat)>
+<!ELEMENT codeUser (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+
+<!-- Infomation of how much the user access the system -->
+<!ELEMENT accessinfo (lastlogin,logonsLastWeek,logonsLastMonth,logonsTotal)>
+
+<!-- The time of the last logon -->
+<!ELEMENT lastlogin (#PCDATA)> 
+
+<!-- The number of logons in the time -->
+<!ELEMENT logonsLastWeek (#PCDATA)> 
+<!ELEMENT logonsLastMonth (#PCDATA)> 
+<!ELEMENT logonsTotal (#PCDATA)> 
+
+<!--
+    The data of these elements are in the attributes
+    -->
+<!ELEMENT blog EMPTY>
+<!ELEMENT forum EMPTY>
+<!ELEMENT chat EMPTY>
+
+<!-- The blog contais the timestamp of the last post and the total number of 
+     posts of the user
+    -->
+<!ATTLIST blog lastpost CDATA #IMPLIED>
+<!ATTLIST blog totalposts CDATA #IMPLIED>
+
+<!-- 
+    The forum contains the timestamp of the last message, the total number of messages
+    that the user posted in all the foruns he participate and the total number of 
+    discussions tha participates.
+    -->
+<!ATTLIST forum lastmessage CDATA #IMPLIED>
+<!ATTLIST forum totalmessages CDATA #IMPLIED>
+<!ATTLIST forum totalforums CDATA #IMPLIED>
+
+<!--
+    The chat element contains  the time of the last message, the total number
+    of posted messages and the total number of chat messages that he participates.
+    -->
+<!ATTLIST forum lastchatmessage CDATA #IMPLIED>
+<!ATTLIST forum totalchatmessages CDATA #IMPLIED>
+<!ATTLIST forum totalchats CDATA #IMPLIED>
+
